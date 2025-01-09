@@ -33,7 +33,7 @@ useSeoMeta({
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow: auto;
 
   h1 {
     font-size: 3em;
