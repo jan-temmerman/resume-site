@@ -4,6 +4,9 @@
 </template>
 
 <script setup>
+import Lenis from "lenis";
+import 'lenis/dist/lenis.css'
+
 const rootEl = ref(null);
 
 onMounted(() => {

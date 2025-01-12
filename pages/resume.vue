@@ -1,16 +1,127 @@
 <template>
-  <div class="under-construction">
-    <p>Under construction</p>
-  </div>
+  <CFlex align="start" class="container">
+    <CFlex column class="left-section">
+      <div class="image-container">
+        <CWOTZ class="wotz-logo"/>
+      </div>
+
+      <CFlex class="name-container">
+        <div>
+          <h1>Front-end Web Developer</h1>
+          <p>March 2021 - Present</p>
+          <p>{{ getDurationString('2021-03-01') }}</p>
+        </div>
+      </CFlex>
+    </CFlex>
+
+    <div class="right-section">
+      <CFlex column>
+        <a href="/">
+          <NuxtImg src="/icons/back.png" class="icon"/>
+        </a>
+        <h1>Summary</h1>
+
+        <CThreeFourths>At Who Owns The Zebra (Previously known as Next Apps) I mainly worked on one big project, called Autodialog.
+          A heavily interactive web application, built with Vue.js. I was part of a team of 3-5 developers. I regularly
+          communicated with the client, the product owner, the project manager, designers and testers. Most of the
+          project was written with typescript so that the code was self documenting and less bug prone. High coding
+          standards, strict code reviews and clean code were top priorities for a project of this size. I started on
+          this project as a junior developer fresh out of school so I had a lot to learn. During the first 3 years and
+          7 months I had the privilege to have a mentor with a lot of experience. During his time on the project I
+          learned a lot about clean code, design patterns, debugging and git. A few months after he left the project I
+          took over his role as team lead.
+        </CThreeFourths>
+
+        <div class="timeline">
+          <h1 style="margin-top: 0">Timeline</h1>
+          <CFlex>
+            <h2>March 2021</h2>
+            <p>/ Junior Developer</p>
+          </CFlex>
+
+          <div class="timeline-divider">
+            {{ getDurationString('2021-03-01', '2024-01-01') }}
+          </div>
+
+          <CFlex>
+            <h2>January 2024</h2>
+            <p>/ Medior Developer</p>
+          </CFlex>
+
+          <div class="timeline-divider">
+            {{ getDurationString('2024-01-01', '2024-12-01') }}
+          </div>
+
+          <CFlex>
+            <h2>December 2024</h2>
+            <p>/ Team Lead</p>
+          </CFlex>
+
+          <div class="timeline-divider">
+            {{ getDurationString('2024-12-01') }}
+          </div>
+
+          <h2>Present</h2>
+        </div>
+      </CFlex>
+    </div>
+  </CFlex>
 </template>
 
-<style>
-.under-construction {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-weight: 600;
-  font-size: 2rem;
+<script setup lang="ts">
+import CFlex from "~/components/CFlex.vue";
+import CWOTZ from "~/components/CWOTZ.vue";
+import {DateTime} from "luxon";
+import {round} from "lodash";
+
+function getDurationString(start?: string, end?: string): string {
+const startDate = start ? DateTime.fromISO(start): DateTime.now();
+  const endDate = end ? DateTime.fromISO(end): DateTime.now();
+
+  const duration = endDate.diff(startDate, ["years", "months", "days"]);
+  const result = [];
+  if (duration.years) result.push(duration.years === 1 ? "1 year" : `${duration.years} years`);
+  if (duration.months) {
+    if (duration.years && !duration.days) result.push(" and ");
+    else if (duration.years) result.push(", ");
+    result.push(duration.months === 1 ? "1 month" : `${duration.months} months`);
+  }
+  if (duration.days) {
+    if (result.length !== 0) result.push(" and ");
+    result.push(duration.days === 1 ? "1 day" : `${round(duration.days)} days`);
+  }
+
+  return result.join("");
+}
+</script>
+
+<style lang="scss">
+.container {
+  gap: 6rem;
+
+  .left-section {
+    .image-container {
+      padding: 1rem 5rem;
+      background-color: black;
+
+      .wotz-logo {
+        color: white;
+      }
+    }
+  }
+
+  .right-section {
+    .timeline {
+      padding: 2rem 3rem;
+      background-color: white;
+      align-self: start;
+
+      .timeline-divider {
+        border-left: 1px solid black;
+        opacity: .5;
+        padding: 1rem;
+      }
+    }
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="left-section">
+  <CFlex class="container">
+    <CFlex column class="left-section">
       <div class="image-container">
         <NuxtImg src="/images/profileImage.jpg" class="profile-image"/>
       </div>
@@ -8,12 +8,12 @@
       <div class="name-container">
         <ContentRenderer v-if="name" :value="name" />
       </div>
-    </div>
+    </CFlex>
 
     <div class="right-section">
       <ContentRenderer v-if="home" :value="home" />
     </div>
-  </div>
+  </CFlex>
 </template>
 
 <script setup lang="ts">
@@ -28,11 +28,8 @@ useSeoMeta({
 
 <style>
 .container {
-  width: 100vw;
   height: 100vh;
-  display: flex;
-  gap: 4rem;
-  flex-wrap: wrap;
+  gap: 6rem;
   overflow: auto;
 
   h1 {
@@ -41,10 +38,10 @@ useSeoMeta({
   }
 
   .left-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     flex: .75;
+    gap: 0;
+    position: sticky;
+    top: 0;
 
     .image-container {
       position: relative;
@@ -72,6 +69,9 @@ useSeoMeta({
       flex: 1;
       background-color: white;
       height: 100%;
+      max-width: 100%;
+      padding: 3rem;
+      box-sizing: border-box;
 
       h1 {
         margin: 0;
@@ -83,7 +83,9 @@ useSeoMeta({
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1.25
+    flex: 1.25;
+    top:0;
+    padding: 10rem 0;
   }
 }
 
@@ -96,6 +98,7 @@ h1 {
     display: block;
 
     .left-section {
+      position: unset;
       width: 100vw;
       height: 100vh;
       & > * {
@@ -104,7 +107,9 @@ h1 {
     }
 
     .right-section {
+      overflow: hidden;
       padding: 3rem;
+      height: unset;
     }
   }
 }
