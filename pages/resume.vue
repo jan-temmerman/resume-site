@@ -72,7 +72,7 @@
 import CFlex from "~/components/CFlex.vue";
 import CWOTZ from "~/components/CWOTZ.vue";
 import {DateTime} from "luxon";
-import {round} from "lodash";
+import _ from "lodash";
 
 function getDurationString(start?: string, end?: string): string {
 const startDate = start ? DateTime.fromISO(start): DateTime.now();
@@ -88,7 +88,7 @@ const startDate = start ? DateTime.fromISO(start): DateTime.now();
   }
   if (duration.days) {
     if (result.length !== 0) result.push(" and ");
-    result.push(duration.days === 1 ? "1 day" : `${round(duration.days)} days`);
+    result.push(duration.days === 1 ? "1 day" : `${_.round(duration.days)} days`);
   }
 
   return result.join("");
