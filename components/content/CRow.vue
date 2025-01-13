@@ -10,5 +10,9 @@
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
+
+
+  @media screen and (max-width: 1200px) {
+  }
 }
 </style>

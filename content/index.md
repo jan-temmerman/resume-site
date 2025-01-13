@@ -15,7 +15,11 @@ think something could be done better, I'm not afraid to ask or speak up.
     About me
     ::
 
-    ::cButton{link="/resume"}
-    Resume
+    ::cButton{link="/work"}
+    Work
+    ::
+
+    ::cButton{link="/education"}
+    Education
     ::
 ::

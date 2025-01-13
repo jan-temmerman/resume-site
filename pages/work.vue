@@ -1,10 +1,6 @@
 <template>
   <CFlex align="start" class="container">
     <CFlex column class="left-section">
-      <div class="image-container">
-        <CWOTZ class="wotz-logo"/>
-      </div>
-
       <CFlex class="name-container">
         <div>
           <h1>Front-end Web Developer</h1>
@@ -12,6 +8,10 @@
           <p>{{ getDurationString('2021-03-01') }}</p>
         </div>
       </CFlex>
+
+      <div class="image-container">
+        <CWOTZ class="wotz-logo"/>
+      </div>
     </CFlex>
 
     <div class="right-section">
@@ -21,7 +21,11 @@
         </a>
         <h1>Summary</h1>
 
-        <CThreeFourths>At Who Owns The Zebra (Previously known as Next Apps) I mainly worked on one big project, called Autodialog.
+        <CThreeFourths>
+          At
+          <a href="https://whoownsthezebra.be" class="link">Who Owns The Zebra</a>
+          (Previously known as Next Apps) I mainly worked on one big project, called
+          <a href="https://www.autodialog.com/" class="link">Autodialog</a>.
           A heavily interactive web application, built with Vue.js. I was part of a team of 3-5 developers. I regularly
           communicated with the client, the product owner, the project manager, designers and testers. Most of the
           project was written with typescript so that the code was self documenting and less bug prone. High coding
@@ -99,6 +103,13 @@ const startDate = start ? DateTime.fromISO(start): DateTime.now();
 .container {
   gap: 6rem;
 
+  .link {
+    text-decoration: underline;
+    &:hover {
+      background-color: #1696fb;
+    }
+  }
+
   .left-section {
     .image-container {
       padding: 1rem 5rem;
@@ -111,6 +122,12 @@ const startDate = start ? DateTime.fromISO(start): DateTime.now();
   }
 
   .right-section {
+    .icon {
+      width: 3rem;
+      height: 3rem;
+      aspect-ratio: 1;
+    }
+
     .timeline {
       padding: 2rem 3rem;
       background-color: white;

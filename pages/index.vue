@@ -27,6 +27,26 @@ useSeoMeta({
 </script>
 
 <style>
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   height: 100vh;
   gap: 6rem;
@@ -39,11 +59,13 @@ useSeoMeta({
 
   .left-section {
     flex: .75;
+    max-width: 600px;
     gap: 0;
     position: sticky;
     top: 0;
 
     .image-container {
+      animation: 300ms fadeIn;
       position: relative;
       display: flex;
       flex: 1;
@@ -76,16 +98,21 @@ useSeoMeta({
       h1 {
         margin: 0;
       }
+
+      & > * {
+        animation: 300ms slideInFromBottom;
+      }
     }
   }
 
   .right-section {
+    animation: 300ms slideInFromBottom;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1.25;
     top:0;
-    padding: 10rem 0;
+    padding: 8rem 0;
   }
 }
 
@@ -109,6 +136,7 @@ h1 {
     .right-section {
       overflow: hidden;
       padding: 3rem;
+      padding-bottom: 6rem;
       height: unset;
     }
   }

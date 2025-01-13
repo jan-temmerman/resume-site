@@ -26,6 +26,10 @@ function gotoLink() {
   background-color: black;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: box-shadow ease 0.2s;
+
+  &:hover {
+    box-shadow: 0 0 20px #1696fb inset;
+  }
 }
 </style>
