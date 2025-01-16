@@ -5,5 +5,6 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxt/image'],
   devServer: {
     port: 3010,
-  }
+  },
+  css: ['~/assets/css/main.scss']
 })

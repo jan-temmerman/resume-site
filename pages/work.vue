@@ -1,20 +1,18 @@
 <template>
-  <CFlex align="start" class="container">
-    <CFlex column class="left-section">
-      <CFlex class="name-container">
-        <div>
-          <h1>Front-end Web Developer</h1>
-          <p>March 2021 - Present</p>
-          <p>{{ getDurationString('2021-03-01') }}</p>
-        </div>
-      </CFlex>
+  <CContainer align="start" class="page-work">
+    <CLeftSection>
+      <CNameContainer>
+        <h1>Front-end Web Developer</h1>
+        <p>March 2021 - Present</p>
+        <p>{{ getDurationString('2021-03-01') }}</p>
+      </CNameContainer>
 
-      <div class="image-container">
+      <CImageContainer>
         <CWOTZ class="wotz-logo"/>
-      </div>
-    </CFlex>
+      </CImageContainer>
+    </CLeftSection>
 
-    <div class="right-section">
+    <CRightSection>
       <CFlex column>
         <a href="/">
           <NuxtImg src="/icons/back.png" class="icon"/>
@@ -68,76 +66,55 @@
           <h2>Present</h2>
         </div>
       </CFlex>
-    </div>
-  </CFlex>
+    </CRightSection>
+  </CContainer>
 </template>
 
 <script setup lang="ts">
 import CFlex from "~/components/CFlex.vue";
 import CWOTZ from "~/components/CWOTZ.vue";
-import {DateTime} from "luxon";
-import _ from "lodash";
+import {getDurationString} from "~/utils/main";
 
-function getDurationString(start?: string, end?: string): string {
-const startDate = start ? DateTime.fromISO(start): DateTime.now();
-  const endDate = end ? DateTime.fromISO(end): DateTime.now();
-
-  const duration = endDate.diff(startDate, ["years", "months", "days"]);
-  const result = [];
-  if (duration.years) result.push(duration.years === 1 ? "1 year" : `${duration.years} years`);
-  if (duration.months) {
-    if (duration.years && !duration.days) result.push(" and ");
-    else if (duration.years) result.push(", ");
-    result.push(duration.months === 1 ? "1 month" : `${duration.months} months`);
-  }
-  if (duration.days) {
-    if (result.length !== 0) result.push(" and ");
-    result.push(duration.days === 1 ? "1 day" : `${_.round(duration.days)} days`);
-  }
-
-  return result.join("");
-}
+useSeoMeta({
+  title: "Jan Temmerman | Work",
+  description: "Jan Temmerman's personal website | Work experience",
+})
 </script>
 
 <style lang="scss">
-.container {
-  gap: 6rem;
-
+.page-work {
   .link {
     text-decoration: underline;
+
     &:hover {
       background-color: #1696fb;
     }
   }
 
-  .left-section {
-    .image-container {
-      padding: 1rem 5rem;
-      background-color: black;
+  .c-image-container {
+    padding: 1rem 5rem;
+    background-color: black;
 
-      .wotz-logo {
-        color: white;
-      }
+    .wotz-logo {
+      color: white;
     }
   }
 
-  .right-section {
-    .icon {
-      width: 3rem;
-      height: 3rem;
-      aspect-ratio: 1;
-    }
+  .icon {
+    width: 3rem;
+    height: 3rem;
+    aspect-ratio: 1;
+  }
 
-    .timeline {
-      padding: 2rem 3rem;
-      background-color: white;
-      align-self: start;
+  .timeline {
+    padding: 2rem 3rem;
+    background-color: white;
+    align-self: start;
 
-      .timeline-divider {
-        border-left: 1px solid black;
-        opacity: .5;
-        padding: 1rem;
-      }
+    .timeline-divider {
+      border-left: 1px solid black;
+      opacity: .5;
+      padding: 1rem;
     }
   }
 }
