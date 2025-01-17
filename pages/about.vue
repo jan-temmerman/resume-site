@@ -8,13 +8,14 @@
       </CNameContainer>
 
       <CImageContainer>
-        <NuxtImg :src="`/images/${sport}.gif`" :placeholder="`/images/${sport}_placeholder.png`" loading="lazy" class="sport-image"/>
+        <NuxtImg :src="`/images/${sport}.gif`" :placeholder="`/images/${sport}_placeholder.png`" loading="lazy"
+                 alt="Jan doing some sport" class="sport-image"/>
       </CImageContainer>
     </CLeftSection>
 
     <CRightSection>
       <a href="/">
-        <NuxtImg src="/icons/back.png" class="icon"/>
+        <NuxtImg src="/icons/back.png" alt="back icon" class="icon"/>
       </a>
       <ContentRenderer v-if="about" :value="about" />
     </CRightSection>
@@ -24,11 +25,10 @@
 <script setup lang="ts">
 import _ from "lodash";
 import {getDurationString} from "~/utils/main";
-import CFlex from "~/components/CFlex.vue";
 
 const { data: about } = await useAsyncData(() => queryCollection('content').path('/about').first())
 
-const sport = _.sample(['swim', 'run']);
+const sport = _.sample(['swim', 'run', 'gym', 'bike']);
 
 useSeoMeta({
   title: "Jan Temmerman | About",

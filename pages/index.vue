@@ -2,7 +2,7 @@
   <CContainer class="page-home">
     <CLeftSection>
       <CImageContainer>
-        <NuxtImg src="/images/profileImage.jpg" class="profile-image"/>
+        <NuxtImg src="/images/profileImage.jpg" alt="A portrait photo of Jan" class="profile-image"/>
       </CImageContainer>
 
       <CNameContainer>

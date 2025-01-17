@@ -8,14 +8,14 @@
       </CNameContainer>
 
       <CImageContainer>
-        <NuxtImg src="/images/artevelde_logo.png" class="artevelde-logo"/>
+        <NuxtImg src="/images/artevelde_logo.png" alt="The artevelde logo" class="artevelde-logo"/>
       </CImageContainer>
     </CLeftSection>
 
     <CRightSection>
       <CFlex column>
         <a href="/">
-          <NuxtImg src="/icons/back.png" class="icon"/>
+          <NuxtImg src="/icons/back.png" alt="back icon" class="icon"/>
         </a>
         <h1>Education</h1>
 

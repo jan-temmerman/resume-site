@@ -15,7 +15,7 @@
     <CRightSection>
       <CFlex column>
         <a href="/">
-          <NuxtImg src="/icons/back.png" class="icon"/>
+          <NuxtImg src="/icons/back.png" alt="back icon" class="icon"/>
         </a>
         <h1>Summary</h1>
 
