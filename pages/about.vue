@@ -7,12 +7,11 @@
         <p>Age: {{ getDurationString('1999-03-17') }}</p>
       </CNameContainer>
 
-        <CImageContainer>
-          <ClientOnly>
-            <NuxtImg :src="`/images/${sport}.gif`" :placeholder="`/images/${sport}_placeholder.png`" loading="lazy"
-                     alt="Jan doing some sport" class="sport-image"/>
-          </ClientOnly>
+      <ClientOnly>
+        <CImageContainer :style="`background-image: url('/images/${sport}_placeholder.png')`">
+            <img :src="`/images/${sport}.gif`" loading="lazy" alt="Jan doing some sport" class="sport-image"/>
         </CImageContainer>
+      </ClientOnly>
     </CLeftSection>
 
     <CRightSection>
